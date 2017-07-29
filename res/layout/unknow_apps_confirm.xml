@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!--
+  Defines the layout of the confirmation screen that gets displayed when an
+  application is about to be unknowed. Includes ok and cancel buttons
+  to let the uinstallation continue or abort.
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="467dip"
+    android:layout_height="308dip"
+    android:background="@drawable/dialog1_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingBottom="8dip" >
+
+        <!-- If an activity was specified, explains what package it's in. -->
+
+        <TextView
+            android:id="@+id/activity_text"
+            style="@style/padded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F1F1F1"
+            android:textSize="24sp"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:text="@string/unknown_apps_dlg_text" />
+
+        <!-- The snippet (title & icon) about the application being unknowed. -->
+
+        <include
+            android:id="@+id/unknow_activity_snippet"
+            layout="@layout/app_details" 
+            android:visibility="invisible"/>
+
+        <!-- unknow application confirmation text -->
+
+        <TextView
+            android:id="@+id/unknow_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="87dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:textColor="#F1F1F1"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <!-- OK confirm and cancel buttons. -->
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:measureWithLargestChild="true"
+        android:layout_marginBottom="23dp"
+        android:layout_gravity="bottom|center_horizontal" >
+
+        <Button
+            android:id="@+id/cancel_button"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="210dip"
+            android:layout_height="60dip"
+            android:background="@drawable/about_setting_dialog_left_btn_selector"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="@string/cancel"
+            android:textColor="#F1F1F1"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/ok_button"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="210dip"
+            android:layout_height="60dip"
+            android:layout_toRightOf="@id/cancel_button"
+            android:background="@drawable/about_setting_dialog_right_btn_selector"
+            android:filterTouchesWhenObscured="true"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="@string/settings"
+            android:textColor="#F1F1F1"
+            android:textSize="24sp" />
+    </RelativeLayout>
+
+</LinearLayout>
